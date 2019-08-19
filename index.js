@@ -2,10 +2,12 @@ const express = require('express');
 
 const server = express();
 
-server.get('/teste', (req, res) => {
-    console.log('teste');
+const users = ['Diego', 'Cláudio', 'Victor'];
 
-    return res.json({ message: 'Hello World'});
+server.get('/users/:index', (req, res) => {
+    const { index } =  req.params;
+
+    return res.json(users[index]);
 });
 
 server.listen(3000);
